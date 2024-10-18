@@ -1,0 +1,336 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Celebrity Wear API",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080"
+        }
+    ],
+    "paths": {
+        "/api/artists": {
+            "get": {
+                "tags": [
+                    "Artists"
+                ],
+                "summary": "Get list of artists",
+                "operationId": "2c8aed1387cca1c65d98da7ee11ac926",
+                "responses": {
+                    "200": {
+                        "description": "List of artists"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Artists"
+                ],
+                "summary": "Create a new artist",
+                "operationId": "83d2888bdc6fac66b9a7cc81c4c950fb",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Artist"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Artist created"
+                    }
+                }
+            }
+        },
+        "/api/artists/{id}": {
+            "get": {
+                "tags": [
+                    "Artists"
+                ],
+                "summary": "Get artist by ID",
+                "operationId": "d0b68c06b8bc310fbe24c6d3ea80dac3",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Artist data"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Artists"
+                ],
+                "summary": "Update an artist",
+                "operationId": "5a5632ea389f9a05336f8d035f5a44c0",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Artist"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Artist updated"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Artists"
+                ],
+                "summary": "Delete an artist",
+                "operationId": "4f6d8bd2c8b4b738af7589b72348ac20",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Artist deleted"
+                    }
+                }
+            }
+        },
+        "/api/perfumes": {
+            "get": {
+                "tags": [
+                    "Perfumes"
+                ],
+                "summary": "Get list of perfumes",
+                "operationId": "021d4cd77ee83e9b8e02de9df7f37e88",
+                "responses": {
+                    "200": {
+                        "description": "List of perfumes"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Perfumes"
+                ],
+                "summary": "Create a new perfume",
+                "operationId": "7cfc49630a04e455a102e9bce80e334c",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Perfume"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Perfume created"
+                    }
+                }
+            }
+        },
+        "/api/perfumes/{id}": {
+            "get": {
+                "tags": [
+                    "Perfumes"
+                ],
+                "summary": "Get perfume by ID",
+                "operationId": "9457b1795b486bc78bcdd380110fb706",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Perfume data"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Perfumes"
+                ],
+                "summary": "Update a perfume",
+                "operationId": "078e88e8669896a205489688ea6a7996",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Perfume"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Perfume updated"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Perfumes"
+                ],
+                "summary": "Delete a perfume",
+                "operationId": "1004bd063809f1d58f48e94bc2f67873",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Perfume deleted"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Artist": {
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "description": "Name of the artist",
+                        "type": "string"
+                    },
+                    "bio": {
+                        "description": "Biography of the artist",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Perfume": {
+                "required": [
+                    "name",
+                    "designer",
+                    "collection",
+                    "gender",
+                    "notes"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "ID of the perfume",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "Name of the perfume",
+                        "type": "string"
+                    },
+                    "designer": {
+                        "description": "Designer of the perfume",
+                        "type": "string"
+                    },
+                    "collection": {
+                        "description": "Collection to which the perfume belongs",
+                        "type": "string"
+                    },
+                    "gender": {
+                        "description": "Gender category of the perfume (e.g., male, female, unisex)",
+                        "type": "string"
+                    },
+                    "notes": {
+                        "description": "Notes of the perfume (e.g., top notes, heart notes, base notes)",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Detailed description of the perfume",
+                        "type": "string"
+                    },
+                    "thumbnail": {
+                        "description": "URL of the thumbnail image of the perfume",
+                        "type": "string",
+                        "format": "url"
+                    },
+                    "image": {
+                        "description": "URL of the main image of the perfume",
+                        "type": "string",
+                        "format": "url"
+                    },
+                    "rating": {
+                        "description": "Rating of the perfume",
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "year": {
+                        "description": "Year the perfume was released",
+                        "type": "integer"
+                    },
+                    "url": {
+                        "description": "URL to more information about the perfume",
+                        "type": "string",
+                        "format": "url"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Artists",
+            "description": "Artists"
+        },
+        {
+            "name": "Perfumes",
+            "description": "Perfumes"
+        }
+    ]
+}
