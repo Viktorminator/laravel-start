@@ -107,7 +107,7 @@ class PerfumeController extends Controller
      */
     public function show($id)
     {
-        return Perfume::with('artist')->findOrFail($id);
+        return Perfume::findOrFail($id);
     }
 
     /**

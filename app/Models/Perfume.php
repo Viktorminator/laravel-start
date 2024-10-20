@@ -9,10 +9,12 @@ class Perfume extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id', 'name', 'designer', 'collection', 'gender', 'notes', 'description', 'thumbnail', 'image', 'rating', 'year', 'url'];
+    protected $primaryKey = 'resource_id';
+
+    protected $fillable = ['resource_id', 'name', 'designer', 'collection', 'gender', 'notes', 'description', 'thumbnail', 'image', 'rating', 'year', 'url'];
 
     public function artist()
     {
-        return $this->belongsTo(Artist::class);
+        return $this->belongsTo(Actor::class);
     }
 }
